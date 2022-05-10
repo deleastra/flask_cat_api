@@ -1,20 +1,19 @@
 from flask import jsonify, request
 
-from __main__ import app
+from app import app
 
 from models import db
-from models.cat_model import CatModel
+from models.cat_model import Cat
 
 from schemas.cat_schema import CatInSchema
 
 
 @app.route('/cat', methods=['POST'])
-@app.input(CatInSchema(partial=True))
+# @app.input(CatInSchema())
 def create_cat():
     json_data = request.get_json()
-    print(json_data)
     if 'name' in json_data.keys():
-        cat = CatModel(json_data['name'])
+        cat = CatModel(json_data['name'], json_data['post'])
         db.session.add(cat)
         db.session.commit()
         db.session.flush()
