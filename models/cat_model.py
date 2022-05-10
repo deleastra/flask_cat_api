@@ -8,7 +8,8 @@ class CatModel(db.Model):
     name = db.Column(db.String(), nullable=False)
 
     def __init__(self, name):
-        self.url = name
+        self.name = name
 
     def __repr__(self):
         return '<cat {}>'.format(self.name)
+

@@ -11,7 +11,7 @@ class Config(object):
     # SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
     db_username = 'cat_dba'
     db_password = keyring.get_password('cat_db', 'cat_dba')
-    SQLALCHEMY_DATABASE_URI = 'postgresql://' + db_username + ': ' + db_password + '@localhost:5432/cat_db'
+    SQLALCHEMY_DATABASE_URI = 'postgresql://' + db_username + ':' + db_password + '@localhost:5432/cat_db'
 
 
 class ProductionConfig(Config):

@@ -16,7 +16,7 @@ def create_app():
     migrate = Migrate(app, db)
 
     # importing the models to make sure they are known to Flask-Migrate
-    from .cat import CatModel
+    from .cat_model import CatModel
 
     # any other registrations; blueprints, template utilities, commands
 
